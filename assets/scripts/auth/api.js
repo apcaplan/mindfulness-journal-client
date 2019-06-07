@@ -22,6 +22,7 @@ const signin = formData => {
 }
 
 const changepw = formData => {
+  console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -33,6 +34,7 @@ const changepw = formData => {
 }
 
 const signout = () => {
+  console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',

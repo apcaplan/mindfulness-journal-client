@@ -34,17 +34,17 @@ const onChangePw = event => {
     .catch(ui.onChangePwFailure)
 }
 
-const onLogout = event => {
+const onSignOut = event => {
   event.preventDefault()
   console.log('Hello from Events!')
   api.signout()
-    .then(ui.onLogoutSuccess)
-    .catch(ui.onLogoutFailure)
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutFailure)
 }
 
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePw,
-  onLogout
+  onSignOut
 }

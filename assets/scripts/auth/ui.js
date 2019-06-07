@@ -22,11 +22,11 @@ const onChangePwFailure = responseData => {
   $('.error').text('Failed to change password :(')
 }
 
-const onLogoutSuccess = responseData => {
+const onSignOutSuccess = responseData => {
   $('.error').text('Have a peaceful day!')
 }
 
-const onLogoutFailure = responseData => {
+const onSignOutFailure = responseData => {
   $('.error').text('Couldn\'t log out :(')
 }
 
@@ -37,6 +37,6 @@ module.exports = {
   onSignInFailure,
   onChangePwSuccess,
   onChangePwFailure,
-  onLogoutSuccess,
-  onLogoutFailure
+  onSignOutSuccess,
+  onSignOutFailure
 }
