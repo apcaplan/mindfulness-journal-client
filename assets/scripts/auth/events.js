@@ -14,6 +14,37 @@ const onSignUp = event => {
     .catch(ui.onSignUpFailure)
 }
 
+const onSignIn = event => {
+  event.preventDefault()
+  console.log('Hello from Events!')
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signin(formData)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onSignInFailure)
+}
+
+const onChangePw = event => {
+  event.preventDefault()
+  console.log('Hello from Events!')
+  const form = event.target
+  const formData = getFormFields(form)
+  api.changepw(formData)
+    .then(ui.onChangePwSuccess)
+    .catch(ui.onChangePwFailure)
+}
+
+const onLogout = event => {
+  event.preventDefault()
+  console.log('Hello from Events!')
+  api.signout()
+    .then(ui.onLogoutSuccess)
+    .catch(ui.onLogoutFailure)
+}
+
 module.exports = {
-  onSignUp
+  onSignUp,
+  onSignIn,
+  onChangePw,
+  onLogout
 }
