@@ -6,9 +6,10 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 
 const onSignUp = event => {
   event.preventDefault()
-  console.log('Hello from Events!')
+  console.log('Hello from Events! Sign up from events is:', event)
   const form = event.target
   const formData = getFormFields(form)
+  console.log('formData', formData)
   api.signup(formData)
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
@@ -16,9 +17,10 @@ const onSignUp = event => {
 
 const onSignIn = event => {
   event.preventDefault()
-  console.log('Hello from Events!')
+  console.log('Hello from Events! Sign in from events is:', event)
   const form = event.target
   const formData = getFormFields(form)
+  console.log('formData', formData)
   api.signin(formData)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
@@ -26,9 +28,10 @@ const onSignIn = event => {
 
 const onChangePw = event => {
   event.preventDefault()
-  console.log('Hello from Events!')
+  console.log('Hello from Events! ChangePW from events is:', event)
   const form = event.target
   const formData = getFormFields(form)
+  console.log('formData', formData)
   api.changepw(formData)
     .then(ui.onChangePwSuccess)
     .catch(ui.onChangePwFailure)
