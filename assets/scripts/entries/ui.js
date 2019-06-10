@@ -2,7 +2,6 @@ const store = require('../store')
 
 const onCreateEntrySuccess = responseData => {
   $('.error').text('Successfully created new entry!')
-  console.log('Yay! from ui')
 }
 
 const onCreateEntryFailure = responseData => {
@@ -10,9 +9,41 @@ const onCreateEntryFailure = responseData => {
   console.log('Failure from ui, message: ', responseData)
 }
 
+const onIndexEntrySuccess = responseData => {
+  $('.error').text('Successfully found entries!')
+  $('.message').text('')
+  responseData.entries.forEach(entry => {
+    // const theEntry = responseData.entry
+    // console.log(entry)
+    const entryDisplay = `
+      Entry:
+        Date: ${entry.date}
+        Length of practice: ${entry.length_of_practice}
+        Name of practice: ${entry.name_of_practice}
+        Notes: ${entry.notes}
+    `
+    $('.message').append(entryDisplay)
+  })
+  // $('.message').text(entryDisplay)
+}
+
+const onIndexEntryFailure = responseData => {
+  $('.error').text('Could not report entry. Please try again')
+  console.log('Failure from ui, message: ', responseData)
+}
+
 const onFindEntrySuccess = responseData => {
   $('.error').text('Successfully found entry!')
-  console.log('Yay! from ui')
+  const entry = responseData.entry
+  console.log(entry)
+  const entryDisplay = `
+    Entry:
+       Date: ${entry.date}
+       Length of practice: ${entry.length_of_practice}
+       Name of practice: ${entry.name_of_practice}
+       Notes: ${entry.notes}
+  `
+  $('.message').text(entryDisplay)
   $('result').text(responseData)
 }
 
@@ -34,7 +65,6 @@ const onUpdateEntryFailure = responseData => {
 const onDeleteEntrySuccess = responseData => {
   $('.error').text('Successfully deleted entry!')
   console.log('Yay! from ui')
-
 }
 
 const onDeleteEntryFailure = responseData => {
@@ -45,6 +75,8 @@ const onDeleteEntryFailure = responseData => {
 module.exports = {
   onCreateEntrySuccess,
   onCreateEntryFailure,
+  onIndexEntrySuccess,
+  onIndexEntryFailure,
   onFindEntrySuccess,
   onFindEntryFailure,
   onUpdateEntrySuccess,

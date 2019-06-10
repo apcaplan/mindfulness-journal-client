@@ -15,5 +15,6 @@ $(() => {
   $('#create-entry').on('submit', entryEvents.onCreateEntry)
   $('#update-entry').on('submit', entryEvents.onUpdateEntry)
   $('#delete-entry').on('submit', entryEvents.onDeleteEntry)
+  $('#index').on('submit', entryEvents.onIndexEntry)
   $('#find-entry').on('submit', entryEvents.onFindEntry)
 })

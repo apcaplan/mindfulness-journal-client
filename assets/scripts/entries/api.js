@@ -15,22 +15,34 @@ const createentry = formData => {
   })
 }
 
-const findentry = formData => {
+const indexentry = entryData => {
   console.log('Hello from API!')
   return $.ajax({
-    url: config.apiUrl + '/entries',
-    method: 'POST',
+    url: config.apiUrl + '/entries/',
+    method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: formData
+    data: entryData
+  })
+}
+
+const findentry = entryData => {
+  console.log('Hello from API!', entryData.entry.id)
+  return $.ajax({
+    url: config.apiUrl + '/entries/' + entryData.entry.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: entryData
   })
 }
 
 const updateentry = formData => {
   console.log('Hello from API!')
   return $.ajax({
-    url: config.apiUrl + '/entries/update-entry',
+    url: config.apiUrl + '/entries/' + formData.entry.id,
     method: 'PATCH',
     data: formData,
     headers: {
@@ -52,6 +64,7 @@ const deleteentry = () => {
 
 module.exports = {
   createentry,
+  indexentry,
   findentry,
   updateentry,
   deleteentry
