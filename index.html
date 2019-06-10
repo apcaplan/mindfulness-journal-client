@@ -43,6 +43,34 @@
     <input type="submit" class="btn btn-primary btn-lg" value="Sign Out" />
   </form>
 
+
+    <form id="create-entry">
+      <h2>Create new entry</h2>
+      <input class="form-control-lg" name="entry[date]" placeholder="Enter date" type="date" />
+      <input class="form-control-lg" name="entry[length_of_practice]" placeholder="Enter length of practice" type="integer" />
+      <input class="form-control-lg" name="entry[name_of_practice]" placeholder="Enter name of practice" type="string" />
+      <input class="form-control-lg" name="entry[notes]" placeholder="Enter notes" type="text" />
+      <input type="submit" class="btn btn-secondary btn-lg" name="Submit" />
+    </form>
+    <form id="find-entry">
+      <h2>Find entry</h2>
+      <input class="form-control-lg" name="id" placeholder="Enter id" type="integer" />
+      <input type="submit" class="btn btn-secondary btn-lg" name="Submit" />
+      <p class="response"></p>
+    </form>
+    <form id="update-entry">
+      <h2>Update entry</h2>
+      <input class="form-control-lg" name="entry[date]" placeholder="Enter date" type="date" />
+      <input class="form-control-lg" name="entry[length_of_practice]" placeholder="Enter length of practice" type="integer" />
+      <input class="form-control-lg" name="entry[name_of_practice]" placeholder="Enter name of practice" type="string" />
+      <input class="form-control-lg" name="entry[notes]" placeholder="Enter notes" type="text" />
+      <input type="submit" class="btn btn-secondary btn-lg" name="Submit" />
+    </form>
+    <form id="delete-entry">
+      <h2>Delete entry</h2>
+      <input type="submit" class="btn btn-primary btn-lg" value="Delete" />
+  </form>
+
 </body>
 
 </html>

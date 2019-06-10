@@ -14,11 +14,15 @@ const onSignInSuccess = responseData => {
   console.log('Sign up success from ui, message: ', responseData)
   $('.error').text('Logged in successfully!')
   store.user = responseData.user
+  store.user.id = responseData.user.id
+  console.log('id: ', store.user.id)
 }
 
 const onSignInFailure = responseData => {
   $('.error').text('Could not sign in. Please check email address and password, and try again - or create a new account.')
   console.log('Sign up failure from ui, message: ', responseData)
+  store.user.id = responseData.user.id
+  console.log('id: ', store.user.id)
 }
 
 const onChangePwSuccess = responseData => {
