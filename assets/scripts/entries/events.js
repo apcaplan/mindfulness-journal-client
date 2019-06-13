@@ -7,11 +7,11 @@ const store = require('../store')
 
 const onCreateEntry = event => {
   event.preventDefault()
-  console.log('Hello from Events! Create entry from events is:', event)
+  // console.log('Hello from Events! Create entry from events is:', event)
   const form = event.target
   const entryData = getFormFields(form)
   // entryData['user_id'] = store.user.id
-  console.log('entryData', entryData)
+  // console.log('entryData', entryData)
   api.createentry(entryData)
     .then(ui.onCreateEntrySuccess)
     .catch(ui.onCreateEntryFailure)
@@ -19,7 +19,7 @@ const onCreateEntry = event => {
 
 const onIndexEntry = event => {
   event.preventDefault()
-  console.log('Hello from Events! Find index for current user')
+  // console.log('Hello from Events! Find index for current user')
   // const form = event.target
   // const entryData = getFormFields(form)
   // console.log('entryData ', entryData)
@@ -30,10 +30,10 @@ const onIndexEntry = event => {
 
 const onFindEntry = event => {
   event.preventDefault()
-  console.log('Hello from Events! Find entry from events is:', event)
+  // console.log('Hello from Events! Find entry from events is:', event)
   const form = event.target
   const entryData = getFormFields(form)
-  console.log('entryData ', entryData)
+  // console.log('entryData ', entryData)
   api.findentry(entryData)
     .then(ui.onFindEntrySuccess)
     .catch(ui.onFindEntryFailure)
@@ -41,10 +41,10 @@ const onFindEntry = event => {
 
 const onUpdateEntry = event => {
   event.preventDefault()
-  console.log('Hello from Events! Update entry from events is:', event)
+  // console.log('Hello from Events! Update entry from events is:', event)
   const form = event.target
   const formData = getFormFields(form)
-  console.log('formData ', formData)
+  // console.log('formData ', formData)
   api.updateentry(formData)
     .then(ui.onUpdateEntrySuccess)
     .catch(ui.onUpdateEntryFailure)
@@ -52,7 +52,7 @@ const onUpdateEntry = event => {
 
 const onDeleteEntry = event => {
   event.preventDefault()
-  console.log('Hello from Events!')
+  // console.log('Hello from Events!')
   api.deleteentry()
     .then(ui.onDeleteEntrySuccess)
     .catch(ui.onDeleteEntryFailure)
