@@ -1,0 +1,50 @@
+{{#each entries as |entry|}}
+  {{log entry}}
+  <section data-id="{{entry.id}}">
+
+<h6>Date: </h6>
+<p>
+  {{#if entry.date}}
+    {{entry.date}}
+  {{else}}
+    No date entered.
+  {{/if}}
+</p>
+
+<h6>Length of practice: </h6>
+<p>
+  {{#if entry.length_of_practice}}
+    {{entry.length_of_practice}}
+  {{else}}
+    No length of practice entered.
+  {{/if}}
+</p>
+
+<h6>Type of practice:</h6>
+<p>
+  {{#if entry.name_of_practice}}
+    {{entry.name_of_practice}}
+  {{else}}
+    No style of practice entered.
+  {{/if}}
+</p>
+
+<h6> Notes: </h6>
+<p>
+  {{#if entry.notes}}
+    {{entry.notes}}
+  {{else}}
+    No notes entered.
+  {{/if}}
+</p>
+
+
+  <button type="submit" class="btn btn-secondary btn-lg update-entry" name="Submit" /></button>
+
+<!-- <form id="delete-entry">
+  <h2>Delete entry</h2>
+  <input type="submit" class="btn btn-primary btn-lg" value="Delete" />
+</form> -->
+<button type="submit" class="btn btn-danger btn-lg delete-entry" value="Delete"></button>
+</section>
+{{/each}}
