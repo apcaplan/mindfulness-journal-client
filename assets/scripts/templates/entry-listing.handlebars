@@ -39,12 +39,18 @@
 </p>
 
 
-  <button type="submit" class="btn btn-secondary btn-lg update-entry" name="Submit" /></button>
+  <button class="btn btn-secondary btn-lg update-entry">Edit</button>
 
-<!-- <form id="delete-entry">
-  <h2>Delete entry</h2>
-  <input type="submit" class="btn btn-primary btn-lg" value="Delete" />
-</form> -->
-<button type="submit" class="btn btn-danger btn-lg delete-entry" value="Delete"></button>
+  <form class="update-entry-form log d-none" id="entry-{{entry.id}}">
+    <h2>Update entry</h2>
+    <!-- <input class="form-control-lg" name="entry[id]" placeholder="{{entry.id}}" type="integer" /> -->
+    <input class="form-control-lg date-edit" name="entry[date]" placeholder="Date" type="date" />
+    <input class="form-control-lg length-edit" name="entry[length_of_practice]" placeholder="Practice" type="integer" />
+    <input class="form-control-lg practice-edit" name="entry[name_of_practice]" placeholder="Name" type="string" />
+    <input class="form-control-lg notes-edit" name="entry[notes]" placeholder="Notes" type="text" />
+    <p class="update-message"></p>
+    <button type="submit" class="btn btn-secondary btn-lg">Submit</button>
+  </form>
+  <button type="submit" class="btn btn-danger btn-lg delete-entry">Delete</button>
 </section>
 {{/each}}

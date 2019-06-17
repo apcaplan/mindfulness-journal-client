@@ -11,33 +11,40 @@ const clearModal = () => {
 }
 
 const onCreateEntrySuccess = responseData => {
-  $('.error').text('Successfully created new entry!')
+  $('.cp').text('Successfully created new entry!').fadeOut(2500)
+  $('#create-entry').trigger('reset')
+  setTimeout(() => $('.cp').text('Create another new entry?').fadeIn(2500), 2502)
 }
 
 const onCreateEntryFailure = responseData => {
-  $('.error').text('Could not create entry. Please try again')
-  console.log('Failure from ui, message: ', responseData)
+  $('.cp').text('Could not create entry').fadeOut(2500)
+  setTimeout(() => $('.cp').text('Try again?').fadeIn(2500), 2502)
+}
+
+const populateUpdateForm = event => {
+  $('.date-edit').val(store.entryDate)
+  $('.length-edit').val(store.entryLength)
+  $('.practice-edit').val(store.entryPractice)
+  $('.notes-edit').val(store.entryNotes)
 }
 
 const onIndexEntrySuccess = responseData => {
-  $('.container').show()
+  $('.landing').show()
   $('.error').text('Successfully found entries!')
   // $('.message').text('')
-  console.log(responseData)
   const showEntries = showEntriesTemplate({ entries: responseData.entries })
-  $('.container').html(showEntries)
+  $('.row').html(showEntries)
 }
 
 const onIndexEntryFailure = responseData => {
   $('.error').text('Could not report entry. Please try again')
-  console.log('Failure from ui, message: ', responseData)
 }
 
 const onFindEntrySuccess = responseData => {
-  $('.container').show()
+  $('.landing').show()
   $('.error').text('Successfully found entry!')
   const entry = responseData.entry
-  console.log(entry)
+  // console.log(entry)
   const entryDisplay = `
     Entry:
        Date: ${entry.date}
@@ -51,16 +58,16 @@ const onFindEntrySuccess = responseData => {
 
 const onFindEntryFailure = responseData => {
   $('.error').text('Could not find entry. Please try again')
-  console.log('Failure from ui, message: ', responseData)
+  // console.log('Failure from ui, message: ', responseData)
 }
 
 const onPopulateEntryInModal = entryData => {
   $('#updateModal').modal('show')
-  console.log('entryData', entryData)
+  // console.log('entryData', entryData)
   clearModal()
   const entry = entryData
   store.update = {entry}
-  console.log('store.update', store.update)
+  // console.log('store.update', store.update)
   $('updateEntryDate').val(entryData.date)
   $('updateEntryLength').val(entryData.length_of_practice)
   $('updateEntryType').val(entryData.name_of_practice)
@@ -68,29 +75,29 @@ const onPopulateEntryInModal = entryData => {
 }
 
 const onUpdateEntrySuccess = responseData => {
-  $('.change-pw-container').text('Successfully updated entry!')
-  console.log('Yay! from ui')
+  $('.update-message').text('Successfully updated entry!').fadeOut(3000)
 }
 
 const onUpdateEntryFailure = responseData => {
-  $('.error').text('Could not update entry. Please try again')
-  console.log('Failure from ui, message: ', responseData)
+  $('.update-message').text('Could not update entry. Please try again').fadeOut(3000)
+  // console.log('Failure from ui, message: ', responseData)
 }
 
 const onDeleteEntrySuccess = responseData => {
-  $('.error').text('Successfully deleted entry!')
-  console.log('Yay! from ui')
+  $('.update-message').text('Successfully deleted entry!')
+  // console.log('Yay! from ui')
 }
 
 const onDeleteEntryFailure = responseData => {
-  $('.error').text('Could not delete entry. Please try again')
-  console.log('Failure from ui, message: ', responseData)
+  $('.update-message').text('Could not delete entry. Please try again')
+  // console.log('Failure from ui, message: ', responseData)
 }
 
 module.exports = {
   clearModal,
   onCreateEntrySuccess,
   onCreateEntryFailure,
+  populateUpdateForm,
   onIndexEntrySuccess,
   onIndexEntryFailure,
   onFindEntrySuccess,
