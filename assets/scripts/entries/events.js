@@ -29,7 +29,6 @@ const onIndexEntry = event => {
   //   $('.landing').hide()
   // } else {
   $('.landing').show()
-  // (this).text('Hide all entries')
   api.indexEntry()
     .then(ui.onIndexEntrySuccess)
     .then(function () {
@@ -42,7 +41,6 @@ const onIndexEntry = event => {
 
 const onFindEntry = event => {
   event.preventDefault()
-  // console.log('Hello from Events! Find entry from events is:', event)
   const form = event.target
   const entryData = getFormFields(form)
   // console.log('entryData ', entryData)
@@ -52,11 +50,9 @@ const onFindEntry = event => {
 }
 
 const onClickUpdate = event => {
-  event.preventDefault()
-
-  $('.log').each(function() {
-    $('.log').addClass('hidden')
-  })
+  // $('.log').each(function() {
+  //   $('.log').addClass('hidden')
+  // })
 
   const id = $(event.target).closest('section').data('id')
   store.entryId = id
@@ -68,8 +64,8 @@ const onClickUpdate = event => {
   store.entryPractice = practice
   const notes = $(event.target).closest('section').data('notes')
   store.entryNotes = notes
-
-  $(`#entry-${id}`).toggleClass('hidden')
+  //
+  // $(`#entry-${id}`).toggleClass('hidden')
 
   ui.populateUpdateForm()
 }
@@ -92,7 +88,6 @@ const onUpdateEntry = event => {
 
 const onDeleteEntry = event => {
   event.preventDefault()
-  // console.log('Hello from Events!')
   const eventId = $(event.target).closest('section').data('id')
   api.deleteEntry(eventId)
 
@@ -109,8 +104,14 @@ const hideAllEntries = event => {
 }
 
 const showUpdate = event => {
-  const eventId = $(event.target).closest('section').data('id')
-  $(`#entry-${eventId}`).toggleClass('d-none')
+  if ($.trim($('.landing').html()) === '') {
+    // $('#index').addClass('d-none')
+    $('.landing').text('Your journal is empty. Add some entries first!')
+  } else {
+    const eventId = $(event.target).closest('section').data('id')
+    $(`#entry-${eventId}`).toggleClass('d-none')
+    onClickUpdate(`#entry-${eventId}`)
+  }
 }
 
 const addHandlers = () => {

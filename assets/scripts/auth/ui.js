@@ -3,27 +3,21 @@ const store = require('../store')
 const onSignUpSuccess = responseData => {
   $('.error').show()
   $('.error').text('Signup successful!').fadeOut(3000)
-  $('#sign-up-form').trigger('reset')
-  // $('.form-group input')[0].reset()
-  // console.log('Sign up success from ui, message: ', responseData)
+  $('form').trigger('reset')
 }
 
 const onSignUpFailure = responseData => {
   $('.error').show()
   $('.error').text('Couldn\'t register with this email and password. Please try again!').fadeOut(3000)
-  $('#sign-up-form').trigger('reset')
-  // console.log('Sign up failure from ui, message: ', responseData)
+  $('form').trigger('reset')
 }
 
 const onSignInSuccess = responseData => {
   $('.error').show()
-  // console.log('Sign up success from ui, message: ', responseData)
   $('.error').text('Logged in successfully!').fadeOut(3000)
   store.user = responseData.user
   store.user.id = responseData.user.id
-  // console.log('id: ', store.user.id)
-  // $('#sign-in').get(0).reset()
-  $('#sign-in-form').trigger('reset')
+  $('form').trigger('reset')
   $('#sign-in').hide()
   $('.main').show()
   $('.wrapper').show()
@@ -32,10 +26,7 @@ const onSignInSuccess = responseData => {
 const onSignInFailure = responseData => {
   $('.error').show()
   $('.error').text('Could not sign in. Please check email address and password, and try again - or create a new account.').fadeOut(3000)
-  // console.log('Sign up failure from ui, message: ', responseData)
-  store.user.id = responseData.user.id
-  // console.log('id: ', store.user.id)
-  $('#sign-in-form').trigger('reset')
+  $('form').trigger('reset')
 }
 
 const onChangePwSuccess = responseData => {
@@ -66,11 +57,6 @@ const onSignOutFailure = responseData => {
   $('.error').text('Couldn\'t log out :(').fadeOut(3000)
 }
 
-const clearForms = () => {
-  $(':input').not(':button, :submit, :reset, :hidden, :checkbox, :radio').val('')
-  $(':checkbox, :radio').prop('checked', false)
-}
-
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -79,6 +65,5 @@ module.exports = {
   onChangePwSuccess,
   onChangePwFailure,
   onSignOutSuccess,
-  onSignOutFailure,
-  clearForms
+  onSignOutFailure
 }

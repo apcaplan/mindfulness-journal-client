@@ -13,12 +13,12 @@ const clearModal = () => {
 const onCreateEntrySuccess = responseData => {
   $('.cp').text('Successfully created new entry!').fadeOut(2500)
   $('#create-entry').trigger('reset')
-  setTimeout(() => $('.cp').text('Create another new entry?').fadeIn(2500), 2502)
+  setTimeout(() => $('.cp').text('Create another new entry?').fadeIn(2500), 2500)
 }
 
 const onCreateEntryFailure = responseData => {
   $('.cp').text('Could not create entry').fadeOut(2500)
-  setTimeout(() => $('.cp').text('Try again?').fadeIn(2500), 2502)
+  setTimeout(() => $('.cp').text('Try again?').fadeIn(2500), 2500)
 }
 
 const populateUpdateForm = event => {
@@ -58,7 +58,6 @@ const onFindEntrySuccess = responseData => {
 
 const onFindEntryFailure = responseData => {
   $('.error').text('Could not find entry. Please try again')
-  // console.log('Failure from ui, message: ', responseData)
 }
 
 const onPopulateEntryInModal = entryData => {
@@ -80,17 +79,14 @@ const onUpdateEntrySuccess = responseData => {
 
 const onUpdateEntryFailure = responseData => {
   $('.update-message').text('Could not update entry. Please try again').fadeOut(3000)
-  // console.log('Failure from ui, message: ', responseData)
 }
 
 const onDeleteEntrySuccess = responseData => {
   $('.update-message').text('Successfully deleted entry!')
-  // console.log('Yay! from ui')
 }
 
 const onDeleteEntryFailure = responseData => {
   $('.update-message').text('Could not delete entry. Please try again')
-  // console.log('Failure from ui, message: ', responseData)
 }
 
 module.exports = {
