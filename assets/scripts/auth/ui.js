@@ -21,6 +21,7 @@ const onSignInSuccess = responseData => {
   $('#sign-in').hide()
   $('.main').show()
   $('.wrapper').show()
+  $('body').css('background-image', "url('https://image.freepik.com/free-photo/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring_1253-1092.jpg')")
 }
 
 const onSignInFailure = responseData => {
@@ -50,6 +51,7 @@ const onSignOutSuccess = responseData => {
   $('.error').text('Have a peaceful day!').fadeOut(3000)
   $('.main').hide()
   setTimeout(() => $('.main-menu').show(), 3050)
+  setTimeout(() => $('body').css('background-image', "url('https://pima.bibliocommons.com/events/uploads/images/full/d7b9f99051a59e56422ec1096ee6bfa2/health-mindfulness-meditation.jpg')"), 3050)
 }
 
 const onSignOutFailure = responseData => {

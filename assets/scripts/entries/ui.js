@@ -33,7 +33,7 @@ const onIndexEntrySuccess = responseData => {
   $('.error').text('Successfully found entries!')
   // $('.message').text('')
   const showEntries = showEntriesTemplate({ entries: responseData.entries })
-  $('.row').html(showEntries)
+  $('.landing').html(showEntries)
 }
 
 const onIndexEntryFailure = responseData => {

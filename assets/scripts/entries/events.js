@@ -5,15 +5,13 @@ const ui = require('./ui.js')
 const store = require('../store.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
-// const store = require('../store')
-
 const onCreateEntry = event => {
   event.preventDefault()
   const form = event.target
   // entryData['user_id'] = store.user.id
   const entryData = getFormFields(form)
   // entryData['user_id'] = store.user.id
-  console.log('entryData', entryData)
+  // console.log('entryData', entryData)
   api.createEntry(entryData)
     .then(ui.onCreateEntrySuccess)
     .catch(ui.onCreateEntryFailure)
@@ -23,11 +21,6 @@ const onIndexEntry = event => {
   event.preventDefault()
   $('#hide-entries').removeClass('d-none')
   $('#index').addClass('d-none')
-  // $('.update-entry-form').addClass('d-none')
-  // if ($(this).text() === 'Hide all entries') {
-  //   $('#index').text('Show all entries')
-  //   $('.landing').hide()
-  // } else {
   $('.landing').show()
   api.indexEntry()
     .then(ui.onIndexEntrySuccess)
@@ -37,7 +30,6 @@ const onIndexEntry = event => {
     })
     .catch(ui.onIndexEntryFailure)
 }
-// }
 
 const onFindEntry = event => {
   event.preventDefault()
@@ -50,22 +42,12 @@ const onFindEntry = event => {
 }
 
 const onClickUpdate = event => {
-  // $('.log').each(function() {
-  //   $('.log').addClass('hidden')
-  // })
-
   const id = $(event.target).closest('section').data('id')
-  store.entryId = id
-  const date = $(event.target).closest('section').data('date')
-  store.entryDate = date
-  const length = $(event.target).closest('section').data('length')
-  store.entryLength = length
-  const practice = $(event.target).closest('section').data('practice')
-  store.entryPractice = practice
-  const notes = $(event.target).closest('section').data('notes')
-  store.entryNotes = notes
-  //
-  // $(`#entry-${id}`).toggleClass('hidden')
+
+  store.entryDate = $(`#date-entry-${id}`).text().trim()
+  store.entryLength = $(`#length-entry-${id}`).text().trim()
+  store.entryPractice = $(`#practice-entry-${id}`).text().trim()
+  store.entryNotes = $(`#notes-entry-${id}`).text().trim()
 
   ui.populateUpdateForm()
 }
@@ -74,7 +56,6 @@ const onUpdateEntry = event => {
   event.preventDefault()
   $('.update-entry').hide()
   $('.log').toggleClass('hidden')
-  // console.log('Hello from Events! Update entry from events is:', event)
   const form = event.target
   const formData = getFormFields(form)
   const id = $(event.target).closest('section').data('id')
@@ -90,7 +71,6 @@ const onDeleteEntry = event => {
   event.preventDefault()
   const eventId = $(event.target).closest('section').data('id')
   api.deleteEntry(eventId)
-
     .then(ui.onDeleteEntrySuccess)
     .then(setTimeout(() => onIndexEntry(event), 2500))
     .catch(ui.onDeleteEntryFailure)
@@ -110,7 +90,7 @@ const showUpdate = event => {
   } else {
     const eventId = $(event.target).closest('section').data('id')
     $(`#entry-${eventId}`).toggleClass('d-none')
-    onClickUpdate(`#entry-${eventId}`)
+    onClickUpdate(event)
   }
 }
 
