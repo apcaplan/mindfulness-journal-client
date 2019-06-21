@@ -2,8 +2,8 @@
 
 let apiUrl
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
-  development: 'https://mindfulness-journal-api.herokuapp.com/'
+  production: 'https://mindfulness-journal-api.herokuapp.com/',
+  development: 'http://localhost:4741'
 }
 
 if (window.location.hostname === 'localhost') {

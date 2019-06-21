@@ -3,7 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const createentry = formData => {
+const createEntry = formData => {
   // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/entries',
@@ -15,7 +15,7 @@ const createentry = formData => {
   })
 }
 
-const indexentry = entryData => {
+const indexEntry = entryData => {
   // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/entries/',
@@ -27,7 +27,7 @@ const indexentry = entryData => {
   })
 }
 
-const findentry = entryData => {
+const findEntry = entryData => {
   // console.log('Hello from API!', entryData.entry.id)
   return $.ajax({
     url: config.apiUrl + '/entries/' + entryData.entry.id,
@@ -39,10 +39,10 @@ const findentry = entryData => {
   })
 }
 
-const updateentry = formData => {
+const updateEntry = (id, formData) => {
   // console.log('Hello from API!')
   return $.ajax({
-    url: config.apiUrl + '/entries/' + formData.entry.id,
+    url: config.apiUrl + '/entries/' + id,
     method: 'PATCH',
     data: formData,
     headers: {
@@ -51,10 +51,10 @@ const updateentry = formData => {
   })
 }
 
-const deleteentry = () => {
+const deleteEntry = (entryId) => {
   // console.log('Hello from API!')
   return $.ajax({
-    url: config.apiUrl + '/entries/delete-entry',
+    url: config.apiUrl + '/entries/' + entryId,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -63,9 +63,9 @@ const deleteentry = () => {
 }
 
 module.exports = {
-  createentry,
-  indexentry,
-  findentry,
-  updateentry,
-  deleteentry
+  createEntry,
+  indexEntry,
+  findEntry,
+  updateEntry,
+  deleteEntry
 }

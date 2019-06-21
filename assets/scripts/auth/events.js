@@ -45,9 +45,55 @@ const onSignOut = event => {
     .catch(ui.onSignOutFailure)
 }
 
+// Back to register from Login
+const backToReg = () => {
+  // $('.sign-in').get(0).reset()
+  $('#sign-in').hide()
+  $('#sign-up').show()
+}
+
+// Login
+const login = () => {
+  $('.main-menu').hide()
+  $('#sign-in').show()
+  // $('sign-up').hide()
+}
+
+// Return to main menu from Registration
+const backToMainMenu = () => {
+  $('#sign-up').hide()
+  $('.main-menu').show()
+}
+
+const register = () => {
+  $('.main-menu').hide()
+  $('#sign-up').show()
+}
+
+const openingSettings = () => {
+  $('.main').hide()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('.update-entry-form').hide()
+  $('.wrapper').hide()
+}
+
+const addHandlers = () => {
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#change-password').on('submit', onChangePw)
+  $('#sign-out').on('click', onSignOut)
+  $('#register').on('click', register)
+  $('.return').on('click', backToMainMenu)
+  $('#login').on('click', login)
+  $('.register2').on('click', backToReg)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePw,
-  onSignOut
+  onSignOut,
+  openingSettings,
+  addHandlers
 }
