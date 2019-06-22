@@ -82,11 +82,11 @@ const onUpdateEntryFailure = responseData => {
 }
 
 const onDeleteEntrySuccess = responseData => {
-  $('.update-message').text('Successfully deleted entry!')
+  $('.delete-message').text('Successfully deleted entry!')
 }
 
 const onDeleteEntryFailure = responseData => {
-  $('.update-message').text('Could not delete entry. Please try again')
+  $('.delete-message').text('Could not delete entry. Please try again')
 }
 
 module.exports = {
