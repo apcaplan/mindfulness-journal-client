@@ -56,8 +56,12 @@
               </p>
               <p class="form-control-static"></p>
             </div>
-          </div>
-          <!--end form group-->
+          </div> <!--end form group-->
+          <div class="update-delete">
+            <p class="delete-message"></p>
+          <button class="btn btn-secondary btn-lg update-entry">Edit</button>
+          <button type="submit" class="btn btn-danger btn-lg delete-entry">Delete</button>
+        </div> <!--end update-delete-->
         </form>
       </div>
     </div>
@@ -95,11 +99,8 @@
   </div>
 </div>
 
-  <button class="btn btn-secondary btn-lg update-entry">Edit</button>
-
   <form class="update-entry-form log d-none" id="entry-{{entry.id}}">
     <h2>Update entry</h2>
-    <!-- <input class="form-control-lg" name="entry[id]" placeholder="{{entry.id}}" type="integer" /> -->
     <input class="form-control-lg date-edit" name="entry[date]" placeholder="Date" type="date" />
     <input class="form-control-lg length-edit" name="entry[length_of_practice]" placeholder="Length (minutes)" type="integer" />
     <input class="form-control-lg practice-edit" name="entry[name_of_practice]" placeholder="Practice type" type="string" />
@@ -107,7 +108,6 @@
     <p class="update-message"></p>
     <button type="submit" class="btn btn-secondary btn-lg">Submit</button>
   </form>
-  <button type="submit" class="btn btn-danger btn-lg delete-entry">Delete</button>
   <br>
   <br>
 </section>

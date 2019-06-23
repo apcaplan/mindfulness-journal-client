@@ -23,9 +23,8 @@
 
 <body>
   <h1>Mindfulness Meditation Journal</h1>
-  <p class="error"></p>
   <p class="message"></p>
-  <div class="main-menu bg-image img1">
+  <div class="main-menu">
     <form id="login">
       <input type="button" class="btn btn-primary btn-lg btn-line shadow-lg" value="Sign in"></input>
     </form>
@@ -34,9 +33,9 @@
       <input type="button" class="btn btn-primary btn-line btn-lg shadow-lg" value="Create a new account"></input>
     </form>
     <br>
-  </div>
+  </div> <!--end main-menu-->
 
-<div class="bg-image img1">
+
   <div class="container form-group" id="sign-in">
     <h2>Sign in</h2>
     <div class="form-area">
@@ -46,14 +45,14 @@
         </div>
         <div class="form-group">
           <input type="password" class="form-control-lg" name="credentials[password]" placeholder="Enter password" />
-          <span id="sign-in-msg" class="ui-message"></span>
+          <span id="sign-in-msg"></span>
         </div>
         <input class="btn btn-primary btn-lg btn-line" type="submit" value="Sign in" />
       </form>
       <br>
       <input class="btn btn-primary btn-lg btn-line register2" value="Create new account" />
-    </div>
-  </div>
+    </div> <!--end form-area-->
+  </div> <!--end container-->
 
   <div class="container form-group" id="sign-up">
     <h2>Sign up</h2>
@@ -67,19 +66,18 @@
         </div>
         <div class="form-group">
           <input type="password" class="form-control-lg" name="credentials[password_confirmation]" placeholder="Confirm password" />
-          <span id="sign-up-msg" class="ui-message"></span>
+          <span id="sign-up-msg"></span>
         </div>
         <input class="btn btn-primary btn-lg btn-line" type="submit" value="Sign up" />
       </form>
       <br>
       <input class="btn btn-primary btn-lg btn-line return" value="Return to main menu" />
-    </div>
-  </div>
-</div>
+    </div> <!--end form-area-->
+  </div> <!--end container-->
 
-  <div class="main bg-image img2">
+  <div class="main">
     <div class="wrapper">
-      <div class="navbar navbar-fixed-top navbar-expand-lg navbar-">
+      <div class="navbar navbar-fixed-top navbar-expand-lg">
         <button type="button" class="btn btn-primary-transparent btn-line btn-lg shadow-lg" data-dismiss="modal" data-toggle="modal" data-target="#create-new-entry">Create new entry </button>
         <div class="modal" id="create-new-entry" tabindex="-1" role="dialog" aria-labelledby="create-new-entry">
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -89,7 +87,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="close">
                   <span aria-hidden="true">x</span>
                 </button>
-              </div>
+              </div> <!--end modal-header-->
               <form id="create-entry" class="form-group">
                 <label class="control-label create-label col-md-6" for="date">Date:</label>
                 <div class="col-sm-10 inputs-create-form">
@@ -112,22 +110,16 @@
                 <div class="col-sm-10">
                   <button type="submit" class="btn-line log">Log entry</button>
                 </div>
-              </form>
-              <!--end form-group-->
-            </div>
-          </div>
-        </div>
+              </form> <!--end form-group-->
+            </div> <!--end modal-content-->
+          </div> <!--end modal-dialog-->
+        </div> <!--end create-new-entry-->
         <li class="nav-item">
           <!-- <button id="displayEntries" class="btn btn-primary-transparent btn-line btn-lg shadow-lg" type="button">Show all entries</button> -->
           <button id= "hide-entries" class="btn btn-primary-transparent btn-line btn-lg shadow-lg d-none" type="button">Hide entries</button>
           <button id="index" type="button" class="btn btn-primary-transparent btn-line btn-lg shadow-lg" type="button">Show entries</button>
         </li>
-        <!-- <li class="nav-item">
-            <button id="hide-all-entries-btn" type="button" class="btn btn-primary-transparent btn-line btn-lg shadow-lg">Hide all entries</button>
-          </li> -->
         <li class="nav-item dropdown">
-          <!-- <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Change password</a> -->
-          <!-- <div class="dropdown-menu"> -->
           <button type="button" class="btn btn-primary-transparent btn-line btn-lg shadow-lg" id="changepw-btn" data-toggle="dropdown">Change password<span class="caret"></span></button>
           <div class="form-area dropdown-menu pull-right">
             <form id="change-password">
@@ -142,35 +134,32 @@
               <button type="submit" class="btn-line">Change Password</button>
             </form>
             <div class="change-pw-container"></div>
-          </div>
+          </div><!--end dropdown-menu-->
         <li class="nav-item">
           <input id="sign-out" type="submit" class="btn btn-primary-transparent btn-line btn-lg shadow-lg" value="Sign Out" />
         </li>
-      </div>
-    </div>
+      </div> <!--end navbar-->
+    </div> <!--end wrapper-->
 
+<div class="index-message"></div>
 <div class="landing"></div>
-
-    <!-- expand-md navbar-dark navbar-fixed-top" id="banner"> -->
-    <!-- <div class="container landing">
-      <div class="row m-6">
-        <div class="col-6">
-          Column 1
-        </div>
-        <div class="col-6">
-          Column 2
-        </div>
-      </div> -->
-    <!-- Brand -->
-    <!-- <a class="navbar-brand" href="#"><span></span></a> -->
-
-    <!-- Toggler/collapsibe Button -->
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
-
-
-
+<!--
+<div class="modal delete-confirm d-none">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">DELETE</h5>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this entry?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-line btn-lg shadow-lg delete-affirm" type="button">Yes</button>
+        <button class="btn btn-primary btn-line btn-lg shadow-lg delete-cancel" data-dismiss="modal"type="button">No</button>
+      </div>
+    </div> <!--end modal-content-->
+  </div> <!--end modal-dialog -->
+</div> <!--end modal delete-confirm-->
 
 
     <!-- <div class="btn-group">
@@ -183,32 +172,7 @@
                     </button>
                   </div> -->
     <!-- </form> -->
-  </div>
-  </div>
-  <!-- </div> -->
-  <!-- </div>  <!--end container-->
-
-  <!-- <div class="landing">
-</div> -->
-
-  <!-- <form id="update-entry-form">
-    <h2>Update entry</h2>
-    <!-- <input class="form-control-lg" name="entry[id]" placeholder="{{entry.id}}" type="integer" /> -->
-    <!-- <input class="form-control-lg" name="entry[date]" placeholder="Date" type="date" /> -->
-    <!-- <input class="form-control-lg" name="entry[length_of_practice]" placeholder="Practice" type="integer" /> -->
-    <!-- <input class="form-control-lg" name="entry[name_of_practice]" placeholder="Name" type="string" /> -->
-    <!-- <input class="form-control-lg" name="entry[notes]" placeholder="Notes" type="text" /> -->
-    <!-- <button type="submit" class="btn btn-secondary btn-lg">Submit</button> -->
-  <!-- </form> -->
-
-  <!-- <form id="find-entry"> -->
-  <!-- <h2>Find entry</h2> -->
-  <!-- <input class="form-control-lg" name="entry[id]" placeholder="Enter id" type="integer" /> -->
-  <!-- <input type="submit" class="btn btn-secondary btn-lg" name="Submit" /> -->
-  <!-- <p class="response"></p> -->
-  <!-- </form> -->
-  </div>
-  <!--end main-->
+  </div> <!--end main-->
 </body>
 
 </html>

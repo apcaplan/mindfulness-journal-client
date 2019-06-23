@@ -1,20 +1,20 @@
 const store = require('../store')
 
 const onSignUpSuccess = responseData => {
-  $('.error').show()
-  $('.error').text('Signup successful!').fadeOut(3000)
+  $('.message').show()
+  $('.message').text('Signup successful!').fadeOut(3000)
   $('form').trigger('reset')
 }
 
 const onSignUpFailure = responseData => {
-  $('.error').show()
-  $('.error').text('Couldn\'t register with this email and password. Please try again!').fadeOut(3000)
+  $('.message').show()
+  $('.message').text('Couldn\'t register with this email and password. Please try again!').fadeOut(3000)
   $('form').trigger('reset')
 }
 
 const onSignInSuccess = responseData => {
-  $('.error').show()
-  $('.error').text('Logged in successfully!').fadeOut(3000)
+  $('.message').show()
+  $('.message').text('Logged in successfully!').fadeOut(3000)
   store.user = responseData.user
   store.user.id = responseData.user.id
   $('form').trigger('reset')
@@ -25,8 +25,8 @@ const onSignInSuccess = responseData => {
 }
 
 const onSignInFailure = responseData => {
-  $('.error').show()
-  $('.error').text('Could not sign in. Please check email address and password, and try again - or create a new account.').fadeOut(3000)
+  $('.message').show()
+  $('.message').text('Could not sign in. Please check email address and password, and try again - or create a new account.').fadeOut(3000)
   $('form').trigger('reset')
 }
 
@@ -45,18 +45,18 @@ const onChangePwFailure = responseData => {
 }
 
 const onSignOutSuccess = responseData => {
-  $('.error').show()
+  $('.message').show()
   $('.landing').hide()
   $('#update-entry-form').hide()
-  $('.error').text('Have a peaceful day!').fadeOut(3000)
+  $('.message').text('Have a peaceful day!').fadeOut(3000)
   $('.main').hide()
   setTimeout(() => $('.main-menu').show(), 3050)
   setTimeout(() => $('body').css('background-image', "url('https://pima.bibliocommons.com/events/uploads/images/full/d7b9f99051a59e56422ec1096ee6bfa2/health-mindfulness-meditation.jpg')"), 3050)
 }
 
 const onSignOutFailure = responseData => {
-  $('.error').show()
-  $('.error').text('Couldn\'t log out :(').fadeOut(3000)
+  $('.message').show()
+  $('.message').text('Couldn\'t log out :(').fadeOut(3000)
 }
 
 module.exports = {

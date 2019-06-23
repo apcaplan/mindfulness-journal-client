@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const signup = formData => {
-  // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -13,7 +12,6 @@ const signup = formData => {
 }
 
 const signin = formData => {
-  // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -22,7 +20,6 @@ const signin = formData => {
 }
 
 const changepw = formData => {
-  // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -34,7 +31,6 @@ const changepw = formData => {
 }
 
 const signout = () => {
-  // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
