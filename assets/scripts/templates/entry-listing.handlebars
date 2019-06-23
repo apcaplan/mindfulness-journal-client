@@ -10,9 +10,9 @@
         </div>
         <form class="mt-5 form-horizontal bucket" data-id="{{entry.id}}">
           <div class="form-group">
-            <label class="control-label col-md-6" for="date">Date:</label>
+            <label class="control-label col-md-6 " for="date">Date:</label>
             <div class="col-sm-11">
-              <p class="form-control-static" id="date-entry-{{entry.id}}">
+              <p class="form-control-static handwritten" id="date-entry-{{entry.id}}">
                 {{#if entry.date}}
                   {{entry.date}}
                 {{else}}
@@ -24,7 +24,7 @@
             <label class="control-label col-md-6" for="length">Length of practice:</label>
             <!-- <h6>Length of practice: </h6> -->
             <div class="col-sm-11">
-              <p class="form-control-static" id="length-entry-{{entry.id}}">
+              <p class="form-control-static handwritten" id="length-entry-{{entry.id}}">
                 {{#if entry.length_of_practice}}
                   {{entry.length_of_practice}} minutes
                 {{else}}
@@ -36,7 +36,7 @@
             <label class="control-label col-md-6" for="practice">Type of practice:</label>
             <div class="col-sm-11">
               <!-- <h6>Type of practice:</h6> -->
-              <p class="form-control-static" id="practice-entry-{{entry.id}}">
+              <p class="form-control-static handwritten" id="practice-entry-{{entry.id}}">
                   {{#if entry.name_of_practice}}
                     {{entry.name_of_practice}}
                   {{else}}
@@ -47,7 +47,7 @@
 
             <label class="control-label col-md-6" for="notes">Notes:</label>
             <div class="col-sm-11">
-              <p id="notes-entry-{{entry.id}}">
+              <p class="handwritten" id="notes-entry-{{entry.id}}">
                 {{#if entry.notes}}
                   {{entry.notes}}
                 {{else}}

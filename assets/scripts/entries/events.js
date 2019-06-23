@@ -30,9 +30,9 @@ const onIndexFirst = event => {
 
 const onIndexEntry = event => {
   event.preventDefault()
-  if ($.trim($('.landing').html()) === '') {
-    ui.onIndexEmpty()
-  } else {
+  // if ($.trim($('.landing').html()) === '') {
+  //   ui.onIndexEmpty()
+  // } else {
     buttonChageHide()
     $('.landing').show()
     api.indexEntry()
@@ -42,7 +42,7 @@ const onIndexEntry = event => {
         $('#update').on('submit', onUpdateEntry)
       })
       .catch(ui.onIndexEntryFailure)
-  }
+  // }
 }
 
 const onFindEntry = event => {

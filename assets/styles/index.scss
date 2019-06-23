@@ -10,7 +10,7 @@ body {
   // background-image: url('https://img.freepik.com/free-photo/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring_1253-1094.jpg?size=626&ext=jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: 'Yellowtail', cursive;
+  // font-family: 'Yellowtail', cursive;
   // font-family: 'Annie Use Your Telescope', cursive;
   // font-family: 'Bilbo', cursive;
 // font-family: 'Calligraffitti', cursive;
@@ -39,16 +39,19 @@ body {
 // font-family: 'Shadows Into Light', cursive;
 
 // font-family: 'Tillana', cursive;
+font-family: 'Lato', sans-serif;
+}
 
 
 
+#sign-in {
+  margin-left: 6em;
+  margin-top: 6em;
+}
 
-
-
-
-
-
-
+#sign-up {
+  margin-left: 6em;
+  margin-top: 5em;
 }
 
 .btn-line {
@@ -56,10 +59,14 @@ body {
   border-color: black;
   border-radius: 2px;
   color: black;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 1px;
   margin-right: 10px;
+}
+
+.bucket {
+  font-size: 20px;
 }
 
 .dropdown-menu {
@@ -91,6 +98,16 @@ body {
   }
 }
 
+.handwritten {
+  // font-family: 'Bilbo', cursive;
+  font-family: 'Neucha', cursive;
+}
+
+.index-message {
+  font-size: 125%;
+  margin-left: 1.5em;
+}
+
 .inputs-create-form {
   margin-bottom: 10px;
 
@@ -104,11 +121,17 @@ body {
 
 .main-menu {
   // align-content: center;
-  font-size: 18px;
+  font-size: 28px;
+  font-weight: bold;
   justify-content: right;
-  margin-left: 3em;
-  margin-top: 3em;
+  margin-left: 4em;
+  margin-top: 5em;
 
+}
+
+.message {
+  font-size: 125%;
+  margin-left: 1.5em;
 }
 
 .navbar {
@@ -120,6 +143,15 @@ body {
   list-style: none;
   margin-top: 1em;
 }
+
+h1 {
+font-family: 'Nunito', sans-serif;
+font-weight: bold;
+padding-left: 1em;
+padding-top: 25px;
+}
+
+
 
 
 // .navbar-btn {
