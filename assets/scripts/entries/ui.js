@@ -28,45 +28,47 @@ const populateUpdateForm = event => {
   $('.notes-edit').val(store.entryNotes)
 }
 
+const onIndexEmpty = response => {
+  $('.index-message').show()
+  $('.index-message').text('Your journal is empty. Add some entries first!').fadeOut(4000)
+}
+
 const onIndexEntrySuccess = responseData => {
   $('.landing').show()
-  $('.error').text('Successfully found entries!')
+  // $('.message').text('Successfully found entries!')
   // $('.message').text('')
   const showEntries = showEntriesTemplate({ entries: responseData.entries })
   $('.landing').html(showEntries)
 }
 
 const onIndexEntryFailure = responseData => {
-  $('.error').text('Could not report entry. Please try again')
+  $('.message').text('Could not report entry. Please try again')
 }
 
-const onFindEntrySuccess = responseData => {
-  $('.landing').show()
-  $('.error').text('Successfully found entry!')
-  const entry = responseData.entry
-  // console.log(entry)
-  const entryDisplay = `
-    Entry:
-       Date: ${entry.date}
-       Length of practice: ${entry.length_of_practice}
-       Name of practice: ${entry.name_of_practice}
-       Notes: ${entry.notes}
-  `
-  $('.message').text(entryDisplay)
-  $('result').text(responseData)
-}
+// const onFindEntrySuccess = responseData => {
+//   $('.landing').show()
+//   $('.message').text('Successfully found entry!')
+//   const entry = responseData.entry
+//   const entryDisplay = `
+//     Entry:
+//        Date: ${entry.date}
+//        Length of practice: ${entry.length_of_practice}
+//        Name of practice: ${entry.name_of_practice}
+//        Notes: ${entry.notes}
+//   `
+//   $('.message').text(entryDisplay)
+//   $('result').text(responseData)
+// }
 
-const onFindEntryFailure = responseData => {
-  $('.error').text('Could not find entry. Please try again')
-}
+// const onFindEntryFailure = responseData => {
+//   $('.message').text('Could not find entry. Please try again')
+// }
 
 const onPopulateEntryInModal = entryData => {
   $('#updateModal').modal('show')
-  // console.log('entryData', entryData)
   clearModal()
   const entry = entryData
   store.update = {entry}
-  // console.log('store.update', store.update)
   $('updateEntryDate').val(entryData.date)
   $('updateEntryLength').val(entryData.length_of_practice)
   $('updateEntryType').val(entryData.name_of_practice)
@@ -94,10 +96,11 @@ module.exports = {
   onCreateEntrySuccess,
   onCreateEntryFailure,
   populateUpdateForm,
+  onIndexEmpty,
   onIndexEntrySuccess,
   onIndexEntryFailure,
-  onFindEntrySuccess,
-  onFindEntryFailure,
+  // onFindEntrySuccess,
+  // onFindEntryFailure,
   onPopulateEntryInModal,
   onUpdateEntrySuccess,
   onUpdateEntryFailure,

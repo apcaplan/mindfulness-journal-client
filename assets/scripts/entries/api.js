@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const createEntry = formData => {
-  // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/entries',
     method: 'POST',
@@ -16,7 +15,6 @@ const createEntry = formData => {
 }
 
 const indexEntry = entryData => {
-  // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/entries/',
     method: 'GET',
@@ -28,7 +26,6 @@ const indexEntry = entryData => {
 }
 
 const findEntry = entryData => {
-  // console.log('Hello from API!', entryData.entry.id)
   return $.ajax({
     url: config.apiUrl + '/entries/' + entryData.entry.id,
     method: 'GET',
@@ -40,7 +37,6 @@ const findEntry = entryData => {
 }
 
 const updateEntry = (id, formData) => {
-  // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/entries/' + id,
     method: 'PATCH',
@@ -52,7 +48,6 @@ const updateEntry = (id, formData) => {
 }
 
 const deleteEntry = (entryId) => {
-  // console.log('Hello from API!')
   return $.ajax({
     url: config.apiUrl + '/entries/' + entryId,
     method: 'DELETE',
