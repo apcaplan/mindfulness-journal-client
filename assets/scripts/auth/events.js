@@ -4,6 +4,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
+// Sign up
 const onSignUp = event => {
   event.preventDefault()
   const form = event.target
@@ -13,6 +14,7 @@ const onSignUp = event => {
     .catch(ui.onSignUpFailure)
 }
 
+// Sign in
 const onSignIn = event => {
   event.preventDefault()
   const form = event.target
@@ -22,6 +24,7 @@ const onSignIn = event => {
     .catch(ui.onSignInFailure)
 }
 
+// Change password
 const onChangePw = event => {
   event.preventDefault()
   const form = event.target
@@ -31,6 +34,7 @@ const onChangePw = event => {
     .catch(ui.onChangePwFailure)
 }
 
+// Sign out
 const onSignOut = event => {
   event.preventDefault()
   api.signout()
@@ -57,12 +61,14 @@ const backToMainMenu = () => {
   $('.main-menu').show()
 }
 
+// Registration form
 const register = () => {
   $('.main-menu').hide()
   $('form').trigger('reset')
   $('#sign-up').show()
 }
 
+// Home screen
 const openingSettings = () => {
   $('.main').hide()
   $('#sign-in').hide()
@@ -71,6 +77,7 @@ const openingSettings = () => {
   $('.wrapper').hide()
 }
 
+// Auth handlers
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)

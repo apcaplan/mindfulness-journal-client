@@ -1,18 +1,23 @@
 const store = require('../store')
 const entryEvents = require('../entries/events.js')
 
+// Successful sign up
 const onSignUpSuccess = responseData => {
   $('.message').show()
   $('.message').text('Signup successful!').fadeOut(3000)
   $('form').trigger('reset')
+  setTimeout(() => $('#sign-up').hide(), 3050)
+  setTimeout(() => $('#sign-in').show(), 3050)
 }
 
+// Problem with sign up
 const onSignUpFailure = responseData => {
   $('.message').show()
   $('.message').text('Couldn\'t register with this email and password. Please try again!').fadeOut(3000)
   $('form').trigger('reset')
 }
 
+// Successful sign in
 const onSignInSuccess = responseData => {
   $('.message').show()
   $('.message').text('Logged in successfully!').fadeOut(3000)
@@ -26,12 +31,14 @@ const onSignInSuccess = responseData => {
   entryEvents.buttonChangeShow()
 }
 
+// Problem with sign in
 const onSignInFailure = responseData => {
   $('.message').show()
   $('.message').text('Could not sign in. Please check email address and password, and try again - or create a new account.').fadeOut(3000)
   $('form').trigger('reset')
 }
 
+// Successful password change
 const onChangePwSuccess = responseData => {
   $('.feedback').show()
   $('.feedback').text('Password changed.').fadeOut(2500)
@@ -39,6 +46,7 @@ const onChangePwSuccess = responseData => {
   setTimeout(() => $('.feedback').text('Change password again?').fadeIn(2500), 2502)
 }
 
+// Problem with password change
 const onChangePwFailure = responseData => {
   $('.feedback').show()
   $('.feedback').text('Failed to change password :(').fadeOut(2500)
@@ -46,6 +54,7 @@ const onChangePwFailure = responseData => {
   setTimeout(() => $('.feedback').text('Try again?').fadeIn(2500), 2502)
 }
 
+// Successful sign out
 const onSignOutSuccess = responseData => {
   $('.message').show()
   $('.landing').hide()
@@ -56,6 +65,7 @@ const onSignOutSuccess = responseData => {
   setTimeout(() => $('body').css('background-image', "url('https://pima.bibliocommons.com/events/uploads/images/full/d7b9f99051a59e56422ec1096ee6bfa2/health-mindfulness-meditation.jpg')"), 3050)
 }
 
+// Problem with sign out
 const onSignOutFailure = responseData => {
   $('.message').show()
   $('.message').text('Couldn\'t log out :(').fadeOut(3000)

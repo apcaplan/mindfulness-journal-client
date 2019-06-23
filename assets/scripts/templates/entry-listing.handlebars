@@ -10,7 +10,7 @@
         </div>
         <form class="mt-5 form-horizontal bucket" data-id="{{entry.id}}">
           <div class="form-group">
-            <label class="control-label col-md-6 " for="date">Date:</label>
+            <label class="control-label col-md-8 " for="date">Date:</label>
             <div class="col-sm-11">
               <p class="form-control-static handwritten" id="date-entry-{{entry.id}}">
                 {{#if entry.date}}
@@ -21,19 +21,19 @@
               </p>
             </div>
 
-            <label class="control-label col-md-6" for="length">Length of practice:</label>
+            <label class="control-label col-md-8" for="length">Length of practice (in minutes):</label>
             <!-- <h6>Length of practice: </h6> -->
             <div class="col-sm-11">
               <p class="form-control-static handwritten" id="length-entry-{{entry.id}}">
                 {{#if entry.length_of_practice}}
-                  {{entry.length_of_practice}} minutes
+                  {{entry.length_of_practice}}
                 {{else}}
                   No length of practice entered.
                 {{/if}}
               </p>
             </div>
 
-            <label class="control-label col-md-6" for="practice">Type of practice:</label>
+            <label class="control-label col-md-8" for="practice">Type of practice:</label>
             <div class="col-sm-11">
               <!-- <h6>Type of practice:</h6> -->
               <p class="form-control-static handwritten" id="practice-entry-{{entry.id}}">
@@ -45,7 +45,7 @@
               </p>
             </div>
 
-            <label class="control-label col-md-6" for="notes">Notes:</label>
+            <label class="control-label col-md-8" for="notes">Notes:</label>
             <div class="col-sm-11">
               <p class="handwritten" id="notes-entry-{{entry.id}}">
                 {{#if entry.notes}}
@@ -62,52 +62,21 @@
           <button class="btn btn-secondary btn-lg update-entry">Edit</button>
           <button type="submit" class="btn btn-danger btn-lg delete-entry">Delete</button>
         </div> <!--end update-delete-->
-        </form>
-      </div>
-    </div>
-    <!-- <div class="col-6">
-      <div class="p-3 shadow-lg rounded">
-        <div class="pt-4">
-          <h2 class="text-white ">Entry goes here...</h2>
-        </div>
-        <form class="mt-5 form-horizontal bucket" data-id="{{entry.id}}">
-          <div class="form-group">
-            <label class="control-label col-sm-2" for="date">Date:</label>
-            <div class="col-sm-10">
-              <p class="form-control-static"></p>
-            </div>
-
-            <label class="control-label col-sm-1" for="length">Length of practice:</label>
-            <div class="col-sm-11">
-              <p class="form-control-static"></p>
-            </div>
-
-            <label class="control-label col-md-1 glyphicon glyphicon-time" for="practice">Type of practice</label>
-            <div class="col-sm-11">
-              <p class="form-control-static"></p>
-            </div>
-
-            <label class="control-label col-md-1 glyphicon glyphicon-hourglass" for="notes">Notes</label>
-            <div class="col-sm-5">
-              <p class="form-control-static"></p>
-            </div>
-          </div> -->
-          <!--end form group-->
-        <!-- </form> -->
-      <!-- </div> -->
-    <!-- </div> -->
-  </div>
-</div>
+      </form> <!--end form-->
+    </div> <!--end shadow-->
+  </div> <!--end column-->
+</div> <!--end row-->
+</div> <!--end landing container-->
 
   <form class="update-entry-form log d-none" id="entry-{{entry.id}}">
     <h2>Update entry</h2>
     <input class="form-control-lg date-edit" name="entry[date]" placeholder="Date" type="date" />
-    <input class="form-control-lg length-edit" name="entry[length_of_practice]" placeholder="Length (minutes)" type="integer" />
+    <input class="form-control-lg length-edit" name="entry[length_of_practice]" placeholder="Length (in minutes)" type="integer" />
     <input class="form-control-lg practice-edit" name="entry[name_of_practice]" placeholder="Practice type" type="string" />
     <input class="form-control-lg notes-edit" name="entry[notes]" placeholder="Notes" type="text" />
     <p class="update-message"></p>
     <button type="submit" class="btn btn-secondary btn-lg">Submit</button>
-  </form>
+  </form> <!--end update form-->
   <br>
   <br>
 </section>

@@ -5,6 +5,7 @@ const ui = require('./ui.js')
 const store = require('../store.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 
+// Create new entry
 const onCreateEntry = event => {
   event.preventDefault()
   const form = event.target
@@ -15,6 +16,7 @@ const onCreateEntry = event => {
     .catch(ui.onCreateEntryFailure)
 }
 
+// "Show entries" when create first entry
 const onIndexFirst = event => {
   if ($.trim($('.landing').html()) === '') {
     api.indexEntry()
@@ -28,21 +30,18 @@ const onIndexFirst = event => {
   }
 }
 
+// "Show entries" / index events
 const onIndexEntry = event => {
   event.preventDefault()
-  // if ($.trim($('.landing').html()) === '') {
-  //   ui.onIndexEmpty()
-  // } else {
-    buttonChageHide()
-    $('.landing').show()
-    api.indexEntry()
-      .then(ui.onIndexEntrySuccess)
-      .then(function () {
-        $('.delete-entry').on('submit', onDeleteEntry)
-        $('#update').on('submit', onUpdateEntry)
-      })
-      .catch(ui.onIndexEntryFailure)
-  // }
+  buttonChageHide()
+  $('.landing').show()
+  api.indexEntry()
+    .then(ui.onIndexEntrySuccess)
+    .then(function () {
+      $('.delete-entry').on('submit', onDeleteEntry)
+      $('#update').on('submit', onUpdateEntry)
+    })
+    .catch(ui.onIndexEntryFailure)
 }
 
 const onFindEntry = event => {
@@ -54,6 +53,7 @@ const onFindEntry = event => {
     .catch(ui.onFindEntryFailure)
 }
 
+// For update - gather information to populate edit form
 const onClickUpdate = event => {
   const id = $(event.target).closest('section').data('id')
 
@@ -65,6 +65,7 @@ const onClickUpdate = event => {
   ui.populateUpdateForm()
 }
 
+// Update entry
 const onUpdateEntry = event => {
   event.preventDefault()
   $('.update-entry').hide()
@@ -85,6 +86,7 @@ const onUpdateEntry = event => {
 //   console.log(store.deleteId)
 // }
 
+// Delete entry
 const onDeleteEntry = event => {
   event.preventDefault()
   const lastEntryCheck = function () {
@@ -113,9 +115,9 @@ const hideAllEntries = event => {
   buttonChangeShow()
 }
 
+// "Show update"
 const showUpdate = event => {
   event.preventDefault()
-  // console.log('Hi! heres the event:', event)
   // if ($.trim($('.landing').html()) === '') {
   //   $('.landing').show()
   //   $('.landing').html('Your journal is empty. Add some entries first!')
@@ -126,16 +128,19 @@ const showUpdate = event => {
   // }
 }
 
-const buttonChangeShow = () => {
+// Change "Hide entries" button to "Show entries"
+const buttonChangeShow = function () {
   $('#hide-entries').addClass('d-none')
   $('#index').removeClass('d-none')
 }
 
+// Change "Show entries" button to "Hide entries"
 const buttonChageHide = () => {
   $('#hide-entries').removeClass('d-none')
   $('#index').addClass('d-none')
 }
 
+// Events handlers
 const addHandlers = () => {
   $('#create-entry').on('submit', onCreateEntry)
   $('.landing').on('submit', '.update-entry-form', onUpdateEntry)
