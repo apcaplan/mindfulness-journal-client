@@ -1,4 +1,5 @@
 const store = require('../store')
+const entryEvents = require('../entries/events.js')
 
 const onSignUpSuccess = responseData => {
   $('.message').show()
@@ -22,6 +23,7 @@ const onSignInSuccess = responseData => {
   $('.main').show()
   $('.wrapper').show()
   $('body').css('background-image', "url('https://image.freepik.com/free-photo/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring_1253-1092.jpg')")
+  entryEvents.buttonChangeShow()
 }
 
 const onSignInFailure = responseData => {

@@ -79,7 +79,6 @@ const onUpdateEntry = event => {
 }
 
 // const onDeleteConfirm = event => {
-//   console.log('hi')
 //   const id = $(event.target).closest('section').data('id')
 //   $('.delete-confirm').removeClass('d-none')
 //   store.deleteId = id
@@ -159,5 +158,6 @@ module.exports = {
   onFindEntry,
   onUpdateEntry,
   onDeleteEntry,
+  buttonChangeShow,
   addHandlers
 }
